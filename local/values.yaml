@@ -1,0 +1,35 @@
+global:
+  codefresh:
+    url: "http://local.codefresh.io" # overridden to be ngrok platform url (see install-gitops-runtime.sh)
+    userToken:
+      secretKeyRef:
+        name: "github-local-dev"
+        key: "userToken"
+    accountId: "675b494b9b7f41ecde9da695"
+  runtime:
+    isConfigurationRuntime: true 
+    name: "scotts-local-runtime"
+    cluster: https://kubernetes.default.svc
+    codefreshHosted: false
+    ingressUrl: http://host.docker.internal:8080
+    ingress:
+      enabled: false
+    gitCredentials:
+      password:
+        secretKeyRef:
+          name: "github-local-dev"
+          key: "pat"
+installer:
+  skipValidation: true
+
+tunnel-client:
+  enabled: false
+
+internal-router:
+  service:
+    type: NodePort
+    nodePort: 31243
+
+app-proxy:
+  config:
+    cors: "http://local.codefresh.io" # overridden to include ngrok platform url (see install-gitops-runtime.sh)
