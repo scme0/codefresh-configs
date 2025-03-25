@@ -32,4 +32,14 @@ internal-router:
 
 app-proxy:
   config:
+    graphqlPlayground: "true"
     cors: "http://local.codefresh.io" # overridden to include ngrok platform url (see install-gitops-runtime.sh)
+  # image:
+  #   repository: app-proxy
+  #   tag: 0.0.1
+
+# gitops-operator:
+#   image:
+#     repository: quay.io/codefresh/codefresh-gitops-operator
+#     tag: v0.3.25
+    #cr-26644-b5d5393
