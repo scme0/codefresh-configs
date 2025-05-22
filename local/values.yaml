@@ -5,7 +5,7 @@ global:
       secretKeyRef:
         name: "github-local-dev"
         key: "userToken"
-    accountId: "675b494b9b7f41ecde9da695"
+    accountId: "67e27b6f57f583854db5dfe6"
   runtime:
     isConfigurationRuntime: true 
     name: "scotts-local-runtime"
