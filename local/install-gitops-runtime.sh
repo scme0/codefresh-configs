@@ -10,7 +10,7 @@ printf "🏗️  - Installing codefresh runtime...\n\n"
 # ~/dev/gitops-runtime-helm/charts/gitops-runtime
 
 helm upgrade --install cf-gitops-runtime \
---create-namespace --namespace ns-codefresh \
+--create-namespace --namespace codefresh-ns \
 --values values.yaml \
 --set global.codefresh.url="https://${NGROK_PLATFORM_DOMAIN}" \
 --set app-proxy.config.cors="http://local.codefresh.io\,https://${NGROK_PLATFORM_DOMAIN}" \

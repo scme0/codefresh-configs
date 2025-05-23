@@ -8,7 +8,7 @@ global:
     accountId: "67e27b6f57f583854db5dfe6"
   runtime:
     isConfigurationRuntime: true 
-    name: "scotts-local-runtime"
+    name: "codefresh-runtime"
     cluster: https://kubernetes.default.svc
     codefreshHosted: false
     ingressUrl: http://host.docker.internal:8080

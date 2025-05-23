@@ -42,7 +42,7 @@ printf "🏗️  - Cleaning up 1password credentials file...\n\n"
 rm ./1password-credentials.json
 
 printf "🏗️  - Adding codefresh token secret manually for boothstrapping...\n\n"
-kubectl create namespace ns-codefresh
+kubectl create namespace codefresh-ns
 kubectl apply -f github-local-dev-op.yaml
 if [ $? -ne 0 ]; then
   echo ""
@@ -53,7 +53,7 @@ fi
 
 printf "🏗️  - Waiting for 1password secret to generate...\n\n"
 counter=0
-kubectl get secret github-local-dev -n ns-codefresh
+kubectl get secret github-local-dev -n codefresh-ns
 while [ $? -ne 0 ]; do
   ((counter++))
   if [ $counter -gt 15 ]; then
@@ -63,5 +63,5 @@ while [ $? -ne 0 ]; do
     exit -1
   fi
   sleep 5
-  kubectl get secret github-local-dev -n ns-codefresh
+  kubectl get secret github-local-dev -n codefresh-ns
 done
